@@ -1,0 +1,42 @@
+{
+	"name": "npm-version-compare",
+	"version": "1.0.0",
+	"description": "Compare npm CLI version string with another version string",
+	"repository": "shinnn/npm-version-compare",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "nyc --reporter=html --reporter=text node test.js"
+	},
+	"license": "ISC",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"npm",
+		"cli",
+		"version",
+		"semver",
+		"parse",
+		"major",
+		"minor",
+		"patch",
+		"compare",
+		"comparison",
+		"promise",
+		"async"
+	],
+	"dependencies": {
+		"inspect-with-kind": "^1.0.4",
+		"parse-npm-version": "^1.0.0"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^6.0.0",
+		"eslint": "^5.1.0",
+		"nyc": "^12.0.2",
+		"tape": "^4.9.1"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn/node"
+	}
+}
