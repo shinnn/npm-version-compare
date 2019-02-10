@@ -4,23 +4,23 @@
 [![Build Status](https://travis-ci.com/shinnn/npm-version-compare.svg?branch=master)](https://travis-ci.com/shinnn/npm-version-compare)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/npm-version-compare.svg)](https://coveralls.io/github/shinnn/npm-version-compare?branch=master)
 
-Compare [npm CLI](https://github.com/npm/npm) version string with another version string
+Compare [npm CLI](https://github.com/npm/cli) version string with another version string
 
 ```javascript
 const npmVersionCompare = require('npm-version-compare');
 
-// When `npm --version` prints `6.1.0`
+// When npm CLI v6.7.0 is installed
 
 (async () => {
-  await npmVersionCompare('6.0.0'); // 1
-  await npmVersionCompare('6.1.0'); // 0
-  await npmVersionCompare('6.2.0'); // -1
+  await npmVersionCompare('6.6.0'); // 1
+  await npmVersionCompare('6.7.0'); // 0
+  await npmVersionCompare('6.8.0'); // -1
 })();
 ```
 
 ## Installation
 
-[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/about-npm/).
 
 ```
 npm install npm-version-compare
@@ -49,4 +49,4 @@ The resultant promise will be fulfilled with:
 
 ## License
 
-[ISC License](./LICENSE) © 2018 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2018 - 2019 Shinnosuke Watanabe

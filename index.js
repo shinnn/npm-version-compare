@@ -2,10 +2,13 @@
 
 const {inspect} = require('util');
 
+const importPackage = require('import-package');
 const inspectWithKind = require('inspect-with-kind');
-const parseNpmVersion = require('parse-npm-version');
+const npmCliVersion = require('npm-cli-version');
 
 const ERROR = 'Expected a semver-valid version (<string>)';
+
+importPackage.preload('semver');
 
 module.exports = async function npmVersionCompare(...args) {
 	const argLen = args.length;
@@ -28,5 +31,10 @@ module.exports = async function npmVersionCompare(...args) {
 		throw new RangeError(`${ERROR}, but got a whitespace-only string ${inspect(anotherVersion)}.`);
 	}
 
-	return (await parseNpmVersion()).compare(anotherVersion);
+	const [version, {compare}] = await Promise.all([
+		npmCliVersion(),
+		importPackage('semver')
+	]);
+
+	return compare(version, anotherVersion);
 };
